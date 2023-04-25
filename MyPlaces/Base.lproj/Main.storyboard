@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Kt3-4U-Luo">
-                                <rect key="frame" x="0.0" y="103" width="414" height="633"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="608"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -83,31 +83,42 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rI2-dt-hgl">
-                                <rect key="frame" x="0.0" y="64" width="414" height="39"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PP9-X8-NdC"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Date"/>
                                     <segment title="Name"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortSelection:" destination="ELO-Mv-feE" eventType="valueChanged" id="3i1-m7-K01"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fwI-dp-vIM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rI2-dt-hgl" firstAttribute="leading" secondItem="fwI-dp-vIM" secondAttribute="leading" id="B4p-hb-ocK"/>
-                            <constraint firstItem="rI2-dt-hgl" firstAttribute="top" secondItem="fwI-dp-vIM" secondAttribute="top" id="Ux3-fJ-Phu"/>
-                            <constraint firstItem="Kt3-4U-Luo" firstAttribute="top" secondItem="rI2-dt-hgl" secondAttribute="bottom" constant="1" id="YVq-nh-j7F"/>
+                            <constraint firstItem="Kt3-4U-Luo" firstAttribute="top" secondItem="rI2-dt-hgl" secondAttribute="bottom" id="Z1Q-YU-Hsl"/>
                             <constraint firstItem="rI2-dt-hgl" firstAttribute="trailing" secondItem="fwI-dp-vIM" secondAttribute="trailing" id="yns-Ft-6ai"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="Gk1-b9-NuU">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="v1y-J2-fXv"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="r06-Mu-pAZ">
+                    <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="G4t-Az-b6V">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="kCv-M1-p1E">
                             <connections>
-                                <segue destination="BRU-y4-MkV" kind="presentation" id="f9S-Dj-4cu"/>
+                                <action selector="revesrsedSorting:" destination="ELO-Mv-feE" id="Jaf-4z-s2g"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TRA-eX-7vk">
+                            <connections>
+                                <segue destination="BRU-y4-MkV" kind="presentation" id="LYh-6c-h0y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="reversedSortingButton" destination="kCv-M1-p1E" id="UBh-A1-M6s"/>
+                        <outlet property="segmentedControl" destination="rI2-dt-hgl" id="Ezi-ZS-fmT"/>
                         <outlet property="tableView" destination="Kt3-4U-Luo" id="bXs-nB-Uov"/>
                     </connections>
                 </viewController>
